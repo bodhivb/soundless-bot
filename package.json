@@ -1,0 +1,21 @@
+{
+  "name": "soundless-bot",
+  "version": "1.0.0",
+  "description": "soundless-bot is a Discord Bot built with discord.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bodhivb/soundless-bot.git"
+  },
+  "author": "Bodhi van Baardewijk",
+  "bugs": {
+    "url": "https://github.com/Bodhivb/soundless-bot/issues"
+  },
+  "homepage": "https://github.com/Bodhivb/soundless-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
