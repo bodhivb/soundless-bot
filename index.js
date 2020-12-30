@@ -23,7 +23,7 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
-//
+// Handling an incoming message
 bot.on("message", async (message) => {
   if (!message.content.startsWith(prefix)) return;
 
@@ -39,4 +39,5 @@ bot.on("ready", () => {
   console.log(`Logged in as '${bot.user.tag}'!`);
 });
 
+// Start discord server
 bot.login(config.token);
