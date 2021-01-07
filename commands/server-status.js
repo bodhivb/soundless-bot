@@ -3,14 +3,24 @@ const util = require("minecraft-server-util");
 
 module.exports.config = {
   name: "server-status",
+  description: "Check Minecraft server status",
+  usage: "server-status [ipaddres:port]",
 };
 
 module.exports.run = async (bot, message, args) => {
   if (!args[0])
     return message.channel.send("This command require one command line argument");
 
+  let host = args[0];
+  let port = 25565;
+
+  if (host.includes(":")) {
+    host = args[0].split(":")[0];
+    port = Number(args[0].split(":")[1]);
+  }
+
   util
-    .status(args[0])
+    .status(host, { port })
     .then((response) => {
       let msg = new Discord.MessageEmbed()
         .setTitle("Minecraft server")
@@ -19,6 +29,8 @@ module.exports.run = async (bot, message, args) => {
         .addField("Online players: ", response.onlinePlayers + "/" + response.maxPlayers)
         .addField("Version: ", response.version)
         .addField("Description: ", response.description.toRaw());
+
+      //.setThumbnail(response.favicon);
 
       return message.channel.send(msg);
     })
