@@ -1,4 +1,3 @@
-// Handling an incoming message
 module.exports = async (bot, message) => {
   if (message.channel.type == "dm") return;
 

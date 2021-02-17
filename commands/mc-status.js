@@ -2,9 +2,9 @@ const Discord = require("discord.js");
 const util = require("minecraft-server-util");
 
 module.exports.config = {
-  name: "server-status",
+  name: "mc-status",
   description: "Check Minecraft server status",
-  usage: "server-status [ipaddres:port]",
+  usage: "mc-status [ipaddres:port]",
 };
 
 module.exports.run = async (bot, message, args) => {
