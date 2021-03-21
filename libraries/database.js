@@ -1,5 +1,6 @@
 const fs = require("fs");
 const GuildData = require("./guildData");
+const UserData = require("./userData");
 
 class Database {
   constructor() {
@@ -16,6 +17,10 @@ class Database {
 
   getGuild(id) {
     return new GuildData(id);
+  }
+
+  getUser(id) {
+    return new UserData(id);
   }
 }
 
