@@ -2,7 +2,7 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const { token } = require("./config.json");
 
-const bot = new Discord.Client({ disableEveryone: true });
+const bot = new Discord.Client({ ws: { intents: Discord.Intents.ALL } });
 bot.commands = new Discord.Collection();
 
 // Loads each command in "commands" folder
