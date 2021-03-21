@@ -16,6 +16,25 @@ module.exports = class GuildData {
     this.fileWrite("mc-status.json", data);
   }
 
+  getTempRoles() {
+    return this.fileRead("temp-role.json");
+  }
+
+  addTempRole(roleId, userId, expireAt) {
+    let data = this.getTempRoles();
+    if (data) {
+      data.push({ roleId, userId, expireAt });
+    } else {
+      data = [{ roleId, userId, expireAt }];
+    }
+
+    this.fileWrite("temp-role.json", data);
+  }
+
+  saveTempRoles(data) {
+    this.fileWrite("temp-role.json", data);
+  }
+
   /** Basic function */
   isFileExists(fileName) {
     return fs.existsSync(`./datas/guilds/${this.id}/${fileName}`);
@@ -34,8 +53,12 @@ module.exports = class GuildData {
       fs.unlinkSync(`./datas/guilds/${this.id}/${fileName}`);
     }
 
-    fs.writeFileSync(`./datas/guilds/${this.id}/${fileName}`, JSON.stringify(data), {
-      encoding: "utf-8",
-    });
+    fs.writeFileSync(
+      `./datas/guilds/${this.id}/${fileName}`,
+      JSON.stringify(data ? data : {}),
+      {
+        encoding: "utf-8",
+      }
+    );
   }
 };
