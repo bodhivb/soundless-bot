@@ -7,7 +7,7 @@ module.exports = class BirthdayService {
   constructor(bot) {
     this.bot = bot;
 
-    this.guildWhitelist = Guilds.SL_TEST;
+    this.guildWhitelist = Guilds.SL;
 
     this.checkBirthday();
     this.setNewTimeout();

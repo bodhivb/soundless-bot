@@ -8,6 +8,7 @@ module.exports.config = {
 };
 
 module.exports.run = async (bot, message, args) => {
+  if (message.author.id !== authorId) return;
   //TODO Only for guilds, not DM
 
   //Server host:port

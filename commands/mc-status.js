@@ -8,6 +8,8 @@ module.exports.config = {
 };
 
 module.exports.run = async (bot, message, args) => {
+  if (message.author.id !== authorId) return;
+
   if (!args[0])
     return message.channel.send("This command require one command line argument");
 
