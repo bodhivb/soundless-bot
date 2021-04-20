@@ -1,5 +1,6 @@
 const { database } = require("../libraries/database");
 const { getMinecraftEmbed } = require("../libraries/minecraft");
+const { authorId } = require("../config.json");
 
 module.exports.config = {
   name: "mc-add",

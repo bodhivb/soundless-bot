@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const util = require("minecraft-server-util");
+const { authorId } = require("../config.json");
 
 module.exports.config = {
   name: "mc-status",

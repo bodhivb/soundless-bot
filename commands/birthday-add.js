@@ -14,6 +14,14 @@ module.exports.run = async (bot, message, args) => {
   }
 
   const user = database.getUser(message.author.id);
+
+  //Check if user already adds a birthday
+  if (user.getBirthday()) {
+    return message.reply(
+      "Sorry, you already registered your birthday date. Ask board or moderator to change your birthday date if you made a mistake."
+    );
+  }
+
   //Month start with 0
   const date = new Date(str[2], str[1] - 1, str[0]);
 
