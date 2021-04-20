@@ -10,5 +10,5 @@ module.exports.Guilds = Object.freeze({
 
 /* Soundless Esports - channels */
 module.exports.Channels = Object.freeze({
-  MEMBER_COUNT: "TODO",
+  MEMBER_COUNT: "834144152412618822",
 });
