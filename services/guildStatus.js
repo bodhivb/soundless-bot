@@ -13,7 +13,7 @@ module.exports = class GuildStatusService {
       const guild = await this.bot.guilds.cache.get(Guilds.SL);
       const channel = await guild.channels.cache.get(Channels.MEMBER_COUNT);
 
-      await channel.setName(`Members: ${guild.memberCount.toString()}`);
+      await channel.setName(`「👤」Members: ${guild.memberCount.toString()}`);
     } catch (ex) {
       console.log(ex);
     }
