@@ -1,14 +1,16 @@
 const { database } = require("../libraries/database");
-const { authorId } = require("../config.json");
+const { Guilds } = require("../libraries/constants");
 
 module.exports.config = {
   name: "edit-bday",
   description: "Edit someone birthday date",
   usage: "edit-bday [user] [dd-mm-yyyy]",
+  userPermissions: ["MANAGE_GUILD"],
 };
 
+//this command is only available for soundless server
 module.exports.run = async (bot, message, args) => {
-  if (message.author.id !== authorId) return;
+  if (message.guild.id !== Guilds.SL) return;
 
   if (args.length >= 2) {
     const str = args[1].split(/-|\//);

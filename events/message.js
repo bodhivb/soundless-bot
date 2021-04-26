@@ -8,5 +8,12 @@ module.exports = async (bot, message) => {
   const commandName = args.shift().toLowerCase();
 
   const command = bot.commands.get(commandName);
-  if (command) command.run(bot, message, args);
+  if (command) {
+    //Check user permission
+    if (command.config.userPermissions) {
+      if (!message.member.hasPermission(command.config.userPermissions)) return;
+    }
+
+    command.run(bot, message, args);
+  }
 };
