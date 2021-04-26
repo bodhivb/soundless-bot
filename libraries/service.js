@@ -7,8 +7,8 @@ class Service {
   create(bot) {
     //Fill services here to become active at startup
 
-    //this.birthdayService = new BirthdayService(bot);
-    this.minecraftService = new MinecraftService(bot);
+    this.birthdayService = new BirthdayService(bot);
+    //this.minecraftService = new MinecraftService(bot);
     this.tempRoleService = new TempRoleService(bot);
     this.guildStatusService = new GuildStatusService(bot);
   }

@@ -9,7 +9,7 @@ module.exports = class BirthdayService {
 
     this.guildWhitelist = Guilds.SL;
 
-    this.checkBirthday();
+    //this.checkBirthday();
     this.setNewTimeout();
   }
 
