@@ -22,7 +22,7 @@ module.exports = class GuildData {
 
   addGif(name, url) {
     let data = this.getGifs();
-    if (data.findIndex((d) => d.name === name) >= 0) {
+    if (data && data.findIndex((d) => d.name === name) >= 0) {
       //Already exist
       return false;
     }
@@ -38,6 +38,8 @@ module.exports = class GuildData {
 
   deleteGif(name) {
     let data = this.getGifs();
+    if (!data) return;
+
     const i = data.findIndex((d) => d.name === name);
     if (i >= 0) {
       data.splice(i, 1);

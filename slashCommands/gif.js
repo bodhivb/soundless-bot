@@ -4,8 +4,11 @@ const { database } = require("../libraries/database");
 const getGifsDatabase = () => {
   const guild = database.getGuild(Guilds.SL);
   const gifs = guild.getGifs();
-
-  return gifs.map((gif) => ({ name: gif.name, value: gif.url }));
+  if (gifs) {
+    return gifs.map((gif) => ({ name: gif.name, value: gif.url }));
+  } else {
+    return [];
+  }
 };
 
 module.exports.config = {
