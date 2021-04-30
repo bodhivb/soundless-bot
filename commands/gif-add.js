@@ -9,6 +9,7 @@ module.exports.config = {
 };
 
 module.exports.run = async (bot, message, args) => {
+  if (message.guild.id !== Guilds.SL) return;
   if (args.length < 2) return;
 
   const guild = database.getGuild(message.guild.id);
