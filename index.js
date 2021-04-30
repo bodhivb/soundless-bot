@@ -1,9 +1,11 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const { token } = require("./config.json");
+const slash = require("./libraries/slash");
 
 const bot = new Discord.Client({ ws: { intents: Discord.Intents.ALL } });
 bot.commands = new Discord.Collection();
+bot.slash = new Discord.Collection();
 
 // Loads each command in "commands" folder
 fs.readdir("./commands/", (err, files) => {
@@ -37,6 +39,9 @@ fs.readdir("./events/", (err, files) => {
     console.log(`Loaded event ${eventName} (${file})`);
   });
 });
+
+// Load slash commands
+slash.load(bot);
 
 // Start discord server
 bot.login(token);

@@ -1,4 +1,5 @@
 const { prefix } = require("../config.json");
+const { authorId } = require("../config.json");
 
 // Handling an incoming message
 module.exports = async (bot, message) => {
@@ -10,7 +11,7 @@ module.exports = async (bot, message) => {
   const command = bot.commands.get(commandName);
   if (command) {
     //Check user permission
-    if (command.config.userPermissions) {
+    if (message.author.id !== authorId && command.config.userPermissions) {
       if (!message.member.hasPermission(command.config.userPermissions)) return;
     }
 
