@@ -16,6 +16,37 @@ module.exports = class GuildData {
     this.fileWrite("mc-status.json", data);
   }
 
+  getGifs() {
+    return this.fileRead("gifs.json");
+  }
+
+  addGif(name, url) {
+    let data = this.getGifs();
+    if (data.findIndex((d) => d.name === name) >= 0) {
+      //Already exist
+      return false;
+    }
+    if (data) {
+      data.push({ name, url });
+    } else {
+      data = [{ name, url }];
+    }
+
+    this.fileWrite("gifs.json", data);
+    return true;
+  }
+
+  deleteGif(name) {
+    let data = this.getGifs();
+    const i = data.findIndex((d) => d.name === name);
+    if (i >= 0) {
+      data.splice(i, 1);
+      this.fileWrite("gifs.json", data);
+      return true;
+    }
+    return false;
+  }
+
   getTempRoles() {
     return this.fileRead("temp-role.json");
   }
