@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { database } = require("../libraries/database");
 const { dayLeft } = require("../libraries/common");
-const { Guilds } = require("../libraries/constants");
+const { Guilds, Channels } = require("../libraries/constants");
 
 module.exports = class BirthdayService {
   constructor(bot) {
@@ -98,9 +98,7 @@ module.exports = class BirthdayService {
 
   //Send birthday message to channel
   sendMessage(guild, member, age) {
-    const channel = guild.channels.cache.find(
-      (c) => c.type === "text" && c.name.toLowerCase().includes("lounge")
-    );
+    const channel = message.guild.channels.cache.get(Channels.GENERAL);
 
     if (channel) {
       channel.send(
