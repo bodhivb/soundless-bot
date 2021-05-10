@@ -45,3 +45,6 @@ slash.load(bot);
 
 // Start discord server
 bot.login(token);
+
+//Set custom logger
+require("./libraries/logger")(bot);
