@@ -8,7 +8,15 @@ module.exports.config = {
 };
 
 module.exports.run = async (bot, message, args) => {
-  const user = database.getUser(message.author.id);
+  let userId = message.author.id;
+
+  //You can also check someone's birthday
+  if (args.length > 0) {
+    const mention = message.mentions.users.first();
+    if (mention) userId = mention.id;
+  }
+
+  const user = database.getUser(userId);
   const bday = user.getBirthday() ? new Date(user.getBirthday()) : undefined;
 
   //Add time to fix day time zone
@@ -29,8 +37,15 @@ module.exports.run = async (bot, message, args) => {
       nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
     }
 
-    message.reply(
-      `Keep calm... there are ${dayLeft(nextBirthday)} days until your birthday.`
-    );
+    if (userId === message.author.id) {
+      message.reply(
+        `Keep calm... there are ${dayLeft(nextBirthday)} days until your birthday.`
+      );
+    } else {
+      const mention = message.mentions.users.first();
+      message.channel.send(
+        `There are only ${dayLeft(nextBirthday)} days until ${mention.username} birthday.`
+      );
+    }
   }
 };
