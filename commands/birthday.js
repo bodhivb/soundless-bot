@@ -19,6 +19,9 @@ module.exports.run = async (bot, message, args) => {
   const user = database.getUser(userId);
   const bday = user.getBirthday() ? new Date(user.getBirthday()) : undefined;
 
+  //Ignore if there is no date of birth
+  if (bday == undefined) return;
+
   //Add time to fix day time zone
   let nextBirthday = new Date(
     new Date().getFullYear(),
