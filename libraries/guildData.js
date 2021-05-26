@@ -55,7 +55,8 @@ module.exports = class GuildData {
 
   addTempRole(roleId, userId, expireAt) {
     let data = this.getTempRoles();
-    if (data) {
+
+    if (data && Object.keys(data).length) {
       data.push({ roleId, userId, expireAt });
     } else {
       data = [{ roleId, userId, expireAt }];

@@ -98,7 +98,7 @@ module.exports = class BirthdayService {
 
   //Send birthday message to channel
   sendMessage(guild, member, age) {
-    const channel = message.guild.channels.cache.get(Channels.GENERAL);
+    const channel = guild.channels.cache.get(Channels.GENERAL);
 
     if (channel) {
       channel.send(
