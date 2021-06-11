@@ -104,7 +104,7 @@ module.exports = class BirthdayService {
       channel.send(
         [
           `Happy birthday ${member}! 🎉🎊`,
-          `You just go turned to **${age}** years old! Enjoy your day!`,
+          `Today you just turned **${age}**! Enjoy your day!`,
           ``,
           `XOXO from Soundless Esports 💙`,
         ].join("\n")
