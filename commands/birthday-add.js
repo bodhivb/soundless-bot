@@ -7,6 +7,10 @@ module.exports.config = {
 };
 
 module.exports.run = async (bot, message, args) => {
+  if (!args || args.length === 0) {
+    return message.react("❌");
+  }
+
   const str = args[0].split(/-|\//);
 
   if (str.length < 3) {
