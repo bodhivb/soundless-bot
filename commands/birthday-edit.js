@@ -40,5 +40,7 @@ module.exports.run = async (bot, message, args) => {
       user.setBirthday(date);
       message.react("✅");
     }
+  } else {
+    return message.react("❌");
   }
 };
