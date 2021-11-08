@@ -20,6 +20,15 @@ module.exports = class UserData {
     this.fileWrite(this.user);
   }
 
+  deleteBirthday() {
+    if (this.user && this.user.birthday) {
+      delete this.user.birthday;
+      this.fileWrite(this.user);
+      return true;
+    }
+    return false;
+  }
+
   /** Basic function */
 
   isFileExists() {
