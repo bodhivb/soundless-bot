@@ -1,12 +1,13 @@
 const { Guilds } = require("../libraries/constants");
 const { database } = require("../libraries/database");
 const slash = require("../libraries/slash");
+const { Permissions } = require('discord.js');
 
 module.exports.config = {
   name: "add-gif",
   description: "Add Soundless gif",
   usage: "add-gif [name] [url]",
-  userPermissions: ["MANAGE_GUILD"],
+  userPermissions: [Permissions.FLAGS.MANAGE_GUILD],
 };
 
 module.exports.run = async (bot, message, args) => {

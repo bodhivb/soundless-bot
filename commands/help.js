@@ -1,10 +1,11 @@
 const { prefix } = require("../config.json");
+const { Permissions } = require('discord.js');
 
 module.exports.config = {
   name: "help",
   description: "Show you all of the commands.",
   usage: "help",
-  userPermissions: ["MANAGE_GUILD"],
+  userPermissions: [Permissions.FLAGS.MANAGE_GUILD],
 };
 
 module.exports.run = async (bot, message, args) => {
