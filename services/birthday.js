@@ -102,12 +102,14 @@ module.exports = class BirthdayService {
 
     if (channel) {
       channel.send(
-        [
-          `Happy birthday ${member}! 🎉🎊`,
-          `Today you just turned **${age}**! Enjoy your day!`,
-          ``,
-          `XOXO from Soundless Esports 💙`,
-        ].join("\n")
+        {
+          content: [
+            `Happy birthday ${member}! 🎉🎊`,
+            `Today you just turned **${age}**! Enjoy your day!`,
+            ``,
+            `XOXO from Soundless Esports 💙`,
+          ].join("\n")
+        }
       );
     }
   }

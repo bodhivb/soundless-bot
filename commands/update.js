@@ -9,7 +9,7 @@ module.exports.config = {
 
 module.exports.run = async (bot, message, args) => {
   if (message.author.id === authorId) {
-    const msg = await message.channel.send("Git fetching...");
+    const msg = await message.channel.send({ content: "Git fetching..." });
 
     //Git pull force
     exec("git fetch --all && git reset --hard origin/production", async (err) => {
@@ -17,13 +17,13 @@ module.exports.run = async (bot, message, args) => {
 
       //Log last commit
       exec("git log --name-status --oneline  -1", async (err, stdout, stderr) => {
-        if (!err) await message.channel.send("```Commit: " + stdout + "```");
+        if (!err) await message.channel.send({ content: "```Commit: " + stdout + "```" });
 
         await msg.edit("Git fetch successful, restart bot.");
         process.exit(0);
       });
     });
   } else {
-    message.reply("You do not have permission to run this command.");
+    message.reply({ content: "You do not have permission to run this command." });
   }
 };

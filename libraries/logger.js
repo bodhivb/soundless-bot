@@ -38,9 +38,10 @@ module.exports = (bot) => {
 
     loggerTime = setTimeout(async () => {
       try {
-        await (await bot.channels.cache.get(Channels.CONSOLE)).send(
-          loggerMessage + "```"
-        );
+        await (await bot.channels.cache.get(Channels.CONSOLE)).send({
+          content:
+            loggerMessage + "```"
+        });
       } catch {}
       loggerMessage = "```";
     }, 1000);

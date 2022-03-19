@@ -20,13 +20,13 @@ module.exports.run = async (bot, message, args) => {
     });
   });
   message.author.send({
-    embed: {
+    embeds: [{
       title: "Available commands",
       description: `[user] = this parameter can be id or user tag.`,
       color: 12901133,
       fields: helpMessages,
-    },
+    }],
   });
 
-  message.channel.send("Help pages has been sent to you.");
+  message.channel.send({ content: "Help pages has been sent to you." });
 };
