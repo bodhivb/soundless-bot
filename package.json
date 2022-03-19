@@ -16,7 +16,11 @@
   },
   "homepage": "https://github.com/Bodhivb/soundless-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.1",
-    "minecraft-server-util": "^3.4.2"
+    "@discordjs/builders": "^0.12.0",
+    "discord.js": "13.6.0",
+    "minecraft-server-util": "3.4.2"
+  },
+  "engines": {
+    "node": ">=16.9.0"
   }
 }

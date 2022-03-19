@@ -7,5 +7,5 @@ module.exports = async (bot, message) => {
   );
 
   if (logChannel)
-    logChannel.send(`${message.author.username}'s message is deleted -> ${message}`);
+    logChannel.send({ content: `${message.author.username}'s message is deleted -> ${message}` });
 };

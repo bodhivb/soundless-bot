@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
   let name = args.slice(1).join(" ");
 
   const msg = await message.channel.send({
-    embed: { description: "Adding `" + host + "` to server list... :hourglass:" },
+    embeds: [{ description: "Adding `" + host + "` to server list... :hourglass:" }],
   });
 
   //Get data
@@ -44,10 +44,10 @@ module.exports.run = async (bot, message, args) => {
 
       guild.saveMCStatus(mcStatus);
       msg.edit({
-        embed: {
+        embeds: [{
           description:
             "`" + host + "` has been successfully added in " + channel.toString(),
-        },
+        }],
       });
       return;
     } catch {}

@@ -21,9 +21,9 @@ module.exports.run = async (bot, message, args) => {
 
   //Check if user already adds a birthday
   if (user.getBirthday()) {
-    return message.reply(
+    return message.reply({ content:
       "Sorry, you already registered your birthday date. Ask board or moderator to change your birthday date if you made a mistake."
-    );
+    });
   }
 
   //Month start with 0
