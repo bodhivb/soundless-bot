@@ -1,5 +1,6 @@
 const { dayLeft } = require("../libraries/common");
 const { database } = require("../libraries/database");
+const { Client, Message } = require('discord.js');
 
 module.exports.config = {
   name: "bday",
@@ -7,6 +8,12 @@ module.exports.config = {
   usage: "bday",
 };
 
+/**
+ * @param {Client} bot 
+ * @param {Message} message 
+ * @param {*} args 
+ * @returns 
+ */
 module.exports.run = async (bot, message, args) => {
   let userId = message.author.id;
 
