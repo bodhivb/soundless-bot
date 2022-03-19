@@ -25,7 +25,7 @@ module.exports = class BirthdayService {
     }, nextDay - new Date());
   }
 
-  checkBirthday() {
+  async checkBirthday() {
     fs.readdir("./datas/users/", (err, files) => {
       files.forEach(async (file, i) => {
         const userId = file.replace(".json", "");
@@ -45,7 +45,7 @@ module.exports = class BirthdayService {
           if (dayLeft(nextBirthday) === 0) {
             const guild = this.bot.guilds.cache.get(this.guildWhitelist);
             if (guild) {
-              const member = guild.members.cache.get(userId);
+              const member = await guild.members.fetch(userId);
               if (member) {
                 const age = new Date().getFullYear() - bday.getFullYear();
 
@@ -80,12 +80,10 @@ module.exports = class BirthdayService {
   //Setting up the birthday role
   async createRole(guild) {
     const birthRole = await guild.roles.create({
-      data: {
-        name: "Birthday",
-        color: "#08eaff",
-        permissions: [],
-        hoist: true,
-      },
+      name: "Birthday",
+      color: "#08eaff",
+      permissions: [],
+      hoist: true,
       reason: "Give birthday roll to feel special for one day",
     });
 
@@ -104,7 +102,7 @@ module.exports = class BirthdayService {
       channel.send(
         {
           content: [
-            `Happy birthday ${member}! 🎉🎊`,
+            `Happy birthday ${member.toString()}! 🎉🎊`,
             `Today you just turned **${age}**! Enjoy your day!`,
             ``,
             `XOXO from Soundless Esports 💙`,
