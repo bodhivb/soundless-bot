@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   if (message.author.id !== authorId) return;
 
   if (!args[0])
-    return message.channel.send("This command require one command line argument");
+    return message.channel.send({ content: "This command require one command line argument" });
 
   let host = args[0];
   let port = 25565;
@@ -38,6 +38,6 @@ module.exports.run = async (bot, message, args) => {
       return message.channel.send(msg);
     })
     .catch((error) => {
-      return message.channel.send("Error: " + error);
+      return message.channel.send({ content: "Error: " + error });
     });
 };

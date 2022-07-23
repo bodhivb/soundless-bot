@@ -1,11 +1,12 @@
 const { database } = require("../libraries/database");
 const { Guilds } = require("../libraries/constants");
+const { Permissions } = require('discord.js');
 
 module.exports.config = {
   name: "edit-bday",
   description: "Edit someone birthday date",
   usage: "edit-bday [user] [dd-mm-yyyy]",
-  userPermissions: ["MANAGE_GUILD"],
+  userPermissions: [Permissions.FLAGS.MANAGE_GUILD],
 };
 
 //this command is only available for soundless server

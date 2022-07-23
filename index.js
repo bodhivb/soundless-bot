@@ -3,7 +3,18 @@ const Discord = require("discord.js");
 const { token } = require("./config.json");
 const slash = require("./libraries/slash");
 
-const bot = new Discord.Client({ ws: { intents: Discord.Intents.ALL } });
+// Create a new client instance
+const bot = new Discord.Client({
+  allowedMentions: { parse: ['users', 'roles'], repliedUser: true }, 
+  partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+  intents: [
+    Discord.Intents.FLAGS.GUILDS,
+    Discord.Intents.FLAGS.GUILD_MEMBERS,
+    Discord.Intents.FLAGS.GUILD_MESSAGES,
+    Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+  ]
+});
+
 bot.commands = new Discord.Collection();
 bot.slash = new Discord.Collection();
 
